@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hengyue.hans.dao.RepertoryDao">
+    <resultMap id="RepertoryResult" type="Repertory">
+        <result property="id" column="id" />
+        <result property="name" column="name" />
+        <result property="money" column="money" />
+    </resultMap>
+    <select id="listAll" resultMap="RepertoryResult">
+        select * from t_repertory
+    </select>
+    <select id="listByPage" resultMap="RepertoryResult" parameterType="Map">
+        select * from t_repertory limit #{page} ,#{limit} ;
+    </select>
+</mapper>

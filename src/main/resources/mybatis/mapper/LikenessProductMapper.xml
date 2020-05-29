@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hengyue.hans.dao.LikenessProductDao">
+    <resultMap id="LikenessProductResult" type="LikenessProduct">
+        <result property="id" column="id" />
+        <result property="name" column="name" />
+        <result property="money" column="money" />
+        <result property="trueMoney" column="trueMoney" />
+        <result property="discount" column="discount" />
+        <result property="remarks" column="remarks" />
+        <result property="type" column="type" />
+    </resultMap>
+    <select id="listAll" resultMap="LikenessProductResult">
+        select * from t_likeness_product
+    </select>
+    <select id="listByPage" resultMap="LikenessProductResult" parameterType="Map">
+        select * from t_likeness_product limit #{page} ,#{limit} ;
+    </select>
+</mapper>
